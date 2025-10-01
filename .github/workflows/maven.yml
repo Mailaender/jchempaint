@@ -27,4 +27,6 @@ jobs:
         java-version: ${{ matrix.java }}
         cache: maven
     - name: Build with Maven
+      env:
+        MAVEN_ARGS: "--batch-mode --no-transfer-progress -Dstyle.color=always"
       run: mvn clean install -q -DskipTests
